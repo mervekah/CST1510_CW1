@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI     (delete two)
 Date  :
 
 Run it:   python template.py
@@ -19,9 +19,9 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
+label = input("Enter label: ")
+value = float(input("Enter value: "))
+limit = float(input("Enter limit: "))
 
 
 # ================================================================== PROCESS
@@ -35,7 +35,10 @@ percent = 0.0       # replace with your calculation
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
 
-status = ""   # replace with your if / else (or if / elif / else)
+if value > limit:
+    status = "OVER LIMIT"
+else:
+    status = "OK"
 
 
 # =================================================================== OUTPUT
@@ -53,7 +56,10 @@ print("=" * 34)
 print(f"  RECORD CHECK  -  {label}")
 print("=" * 34)
 
-# your report lines go here
+print(f"Label: {label}")
+print(f"Value: {value}")
+print(f"Limit: {limit}")
+print(f"Status: {status}")
 
 print("=" * 34)
 
