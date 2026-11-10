@@ -1,9 +1,14 @@
 # BROKEN ON PURPOSE.
 # Run it, read the last line, then fix it.
+#%%
+
 try:
-    with open("records.txt") as f:
+    with open("records.txt", "r") as f:
         result = f.read()
+
 except FileNotFoundError:
-    print("FileNotFoundError: [Errno 2] No such file or directory: 'records.txt' ")
+    print("File not found")
+
 else:
     print(result)
+# %%

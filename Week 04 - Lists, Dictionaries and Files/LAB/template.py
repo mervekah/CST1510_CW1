@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI      (delete two)
 Date  :
 
 Run it:   python template.py
@@ -19,7 +19,16 @@ Delete these instructions as you replace them with your code.
 #    nothing outside it should contain a print() of its own. Give each a
 #    one-line docstring.
 
-# your function(s) go here
+def check_record(value, limit):
+    """Check value against limit."""
+    difference = value - limit
+    percent = (value / limit) * 100
+    status = "OVER LIMIT" if value > limit else "OK"
+    return difference, percent, status
+
+def print_report(label, value, limit, difference, percent, status):
+    """Print the record report."""
+    print(label, value, limit, difference, percent, status)
 
 
 # ====================================================================== STORE
@@ -33,7 +42,11 @@ Delete these instructions as you replace them with your code.
 #    Excellent : also write the results out to a new file (one line per
 #                record: label, status), as well as printing them.
 
-records = []   # replace with your code
+records = [
+    {"label": "R-001", "value": 87.0, "limit": 100.0},
+    {"label": "R-002", "value": 120.0, "limit": 100.0},
+    {"label": "R-003", "value": 45.0, "limit": 100.0}
+]
 
 
 # =============================================================== PROCESS + OUTPUT
@@ -43,6 +56,19 @@ records = []   # replace with your code
 #                print that once, after the loop ends.
 
 # your loop goes here
+
+for record in records:
+    difference, percent, status = check_record(
+        record["value"], record["limit"]
+    )
+    print_report(
+        record["label"],
+        record["value"],
+        record["limit"],
+        difference,
+        percent,
+        status
+    )
 
 
 # ==========================================================================
