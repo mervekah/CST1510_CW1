@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Merve Kahraman  
+Lane  :  AI
+Date  : 10/11/2026
 
 Run it:   python template.py
 
@@ -23,10 +23,33 @@ Delete these instructions as you replace them with your code.
 
 # your function(s) go here
 
+def parse_line(raw_line):
+    """Clean a messy record and return a dictionary."""
+    line = raw_line.strip()
+    parts = line.split(",")
+
+    hostname = parts[0].strip().lower()
+    record = {"hostname": hostname}
+
+    for part in parts[1:]:
+        key, value = part.split("=")
+        record[key.strip().lower()] = float(value.strip())
+
+    return record 
+raw_records = [
+    "srv-01,used=87,total=100",
+    "srv-02,used=45,total=100",
+    "srv-03,used=90,total=100",
+    "srv-04,used=60,total=100",
+    "srv-05,used=75,total=100"
+]
+
 
 # ====================================================================== INPUT
 # 2. Your raw, messy records - at least 5, deliberately varied in spacing
-#    and case. Match the shape to your lane:
+for raw_record in raw_records:
+    record = parse_line(raw_record)
+    print(record)
 #
 #    AI / Data Science : "  Survey_2026 , rating=4 , age=23  "
 #    Cyber Security     : "SRC=10.0.0.5,ATTEMPTS=12,RESULT=FAILED"
@@ -35,7 +58,7 @@ Delete these instructions as you replace them with your code.
 #    Excellent: save these lines to a file and load them with open() /
 #    a for loop over the file, instead of writing them directly here.
 
-raw_records = []   # replace with your code
+
 
 
 # =============================================================== PROCESS + OUTPUT
