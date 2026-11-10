@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  : Merve Kahraman
-Lane  :  AI     (delete two)
+Lane  : AI     
 Date  : 10/11/2026
 
 Run it:   python template.py
